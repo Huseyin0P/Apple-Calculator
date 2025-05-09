@@ -54,7 +54,7 @@
                 .then(response => response.json())
                 .then(weather => {
                     console.log('Weather Data:', weather)
-                    document.getElementById("weatherimg").setAttribute("src", "https:" + weather.current.condition.icon)
+                    document.getElementById("weatherimg").setAttribute("src", weather.current.condition.icon)
                     document.getElementById("tempature").innerHTML = (weather.current.temp_c + " C°")
                 })
                 .catch(error => {
